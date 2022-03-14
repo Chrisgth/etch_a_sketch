@@ -1,0 +1,10 @@
+#container{
+    display: flex;
+}
+.gridRowSquare{
+    height: 50px;
+    width: 50px;
+}
+.toggleblack{
+    background-color: black;
+}

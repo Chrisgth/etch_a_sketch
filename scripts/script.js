@@ -5,9 +5,12 @@ const container = document.querySelector('#container')
 // Create 16 rows of 16 divs arranged in a column
 for(a=0; a < 16; a++){
     let gridColumn = document.createElement('div');
+    gridColumn.classList.add('gridColumn')
     container.appendChild(gridColumn);
     for(b=0; b < 16; b++){
         let gridRowSquare = document.createElement('div');
+        gridRowSquare.classList.add('gridRowSquare');
+        gridRowSquare.addEventListener('mouseover', () => {gridRowSquare.classList.toggle('toggleblack')})
         gridColumn.appendChild(gridRowSquare);
     }
 }
