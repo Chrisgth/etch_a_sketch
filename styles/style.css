@@ -1,18 +1,43 @@
 #container{
     display: flex;
-    border: 2px;
+    border: solid 2px;
     border-color: black;
-    width: 960px;
-    height: 960px;
+    width: 900px;
+    height: 900px;
 }
 .gridRowSquare{
-    height: 6.25%;
+    height: 100%;
     width: 100%;
+    border: solid gray 1px;
 }
 .gridColumn{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    width: 6.25%;
+    width: 100%;
 }
 .toggleblack{
     background-color: black;
+}
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#reset{
+    height: 100px;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    background-color: darkgoldenrod;
+}
+#utility{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+#gridSize{
+    font-size: 30px;
 }

@@ -3,6 +3,7 @@
 // It’s best to put your grid squares inside another “container” div (which can go directly in your HTML).
 const container = document.querySelector('#container')
 // Create 16 rows of 16 divs arranged in a column
+let gridSize = document.querySelector('#gridSize');
 for(a=0; a < 16; a++){
     let gridColumn = document.createElement('div');
     gridColumn.classList.add('gridColumn')
@@ -17,10 +18,25 @@ for(a=0; a < 16; a++){
 const resetButton = document.querySelector('#reset')
 resetButton.addEventListener('click', () => {reset()})
 function reset(){
-    container.innerHTML = '';
-    let numPerSide = prompt('how many');
+    let numPerSide = prompt('Enter a number x to create an x by x grid');
     numPerSide = Number(numPerSide);
-    console.log(numPerSide);
+    if(numPerSide > 100){
+        alert('Please enter a number below or including 100!')
+        return;
+    }
+    gridSize.textContent = 'Grid Size: ' + numPerSide + ' x ' + numPerSide;
+    container.innerHTML = '';
+    for(a=0; a < numPerSide; a++){
+    let gridColumn = document.createElement('div');
+    gridColumn.classList.add('gridColumn')
+    container.appendChild(gridColumn);
+    for(b=0; b < numPerSide; b++){
+        let gridRowSquare = document.createElement('div');
+        gridRowSquare.classList.add('gridRowSquare');
+        gridRowSquare.addEventListener('mouseover', () => {gridRowSquare.classList.add('toggleblack')})
+        gridColumn.appendChild(gridRowSquare);
+    }
+}
 }
 // Add a button to the top of the screen which will clear the current grid and send the user a popup asking
 // for the number of squares per side for the new grid. Once entered, the new grid should be generated 
